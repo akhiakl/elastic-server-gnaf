@@ -6,8 +6,15 @@ services:
     ports:
       - '9200:9200'
       - '9300:9300'
+    environment:
+      - http.port=9200
+      - http.cors.enabled=true
+      - http.cors.allow-origin=http://localhost:4200
+      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      - http.cors.allow-credentials=true
     volumes:
       - 'elasticsearch_data:/bitnami/elasticsearch/data'
+      - './elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml'
 volumes:
   elasticsearch_data:
     driver: local
