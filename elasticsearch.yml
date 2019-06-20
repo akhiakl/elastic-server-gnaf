@@ -1,0 +1,6 @@
+bootstrap.mlockall: true
+http.cors.allow-credentials: true
+http.cors.enabled: true
+http.cors.allow-origin: '*
+path:
+  logs: data/log
